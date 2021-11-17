@@ -1,0 +1,218 @@
+/*
+    Variables
+*/
+$sidebar-bg: #363740;
+$sidebar-color: #A4A6B3;
+$sidebar-color-active: #dce2ff;
+$body-bg: #F7F8FC;
+$body-color: #252733;
+$blue: #3751FF;
+
+/* Mixins*/
+@mixin cardText($fontSize: 16px){
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #9FA2B4;
+    margin-bottom: 7px;
+    font-size: $fontSize;
+}
+
+@mixin cardTitle($fontSize: 40px){
+    font-size: $fontSize;
+    color: #252733;
+    margin-bottom: 0;
+}
+
+
+/* Layout */
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+/*Override*/
+.bg-dark {
+    background-color: $sidebar-bg !important;
+}
+
+/* sidebarMenu */
+.sidebar-logo {
+    padding: 30px 9px 40px;
+    .blue-ellipse {
+        background-color: #3751FF;
+        width: 32px;
+        height: 32px;
+        line-height: 0;
+        border-radius: 50%;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 13px;
+            height: 13px;
+            object-fit: contain;
+        }
+    }
+
+    .sidebar-title {
+        display: inline-block;
+        color: $sidebar-color;
+        font-size: 18px;
+        padding-left: 40px;
+        margin-top: 6px;
+        letter-spacing: 1px;
+        opacity: .8;
+    }
+}
+
+.border-menu {
+    border-top: 1px solid #DFE0EB;
+    margin: 22px -11px;
+    opacity: .1;
+}
+
+#sidebarMenu .nav-item {
+    font-weight: 200;
+    position: relative;
+    .nav-link {
+        padding: 16px 10px;
+        color: $sidebar-color;
+        position: relative;
+        z-index: 1;
+        i {
+            margin-right: 8px;
+        }
+    }
+
+    &.active {
+        color: $sidebar-color-active;
+        background-color: #3f4049;
+        .nav-link {
+            color: $sidebar-color-active;
+        }
+        &:before {
+            content: "";
+            width: calc(100% + 22px);
+            height: 100%;
+            background-color: #3f4049;
+            position: absolute;
+            left: -10px;
+            top: 0;
+            z-index: 0;
+        }
+        &:after {
+            content: "";
+            width: 3px;
+            height: 100%;
+            background-color: $sidebar-color-active;
+            position: absolute;
+            left: -10px;
+            top: 0;
+            z-index: 0;
+        }
+    }
+}
+
+/*
+    Home
+*/
+.bg-main {
+    background-color: $body-bg;
+}
+
+.summary-top .card {
+    text-align: center;
+    margin-bottom: 20px;
+    .card-text {
+        @include cardText;
+    }
+    .card-title {
+        @include cardTitle;
+    }
+
+    &.active {
+        border: 1px solid $blue;
+        box-shadow: 0 0 2px #5e71f3;
+        .card-text,
+        .card-title {
+            color: $blue;
+        }
+    }
+}
+
+.chart-container {
+    margin-top: 10px;
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #252733;
+    margin: 0;
+} 
+
+.line {
+    width: 20px;
+    height: 2px;
+    background-color: #A4A6B3;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 4px;
+    &.blue {
+        background-color: $blue;
+    }
+}
+
+.legend {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    & > div {
+        min-width: 90px;
+    }
+}
+
+.subtitle-detail {
+    color: #9FA2B4;
+    font-size: 12px;
+}
+
+.chart-bottom {
+    margin-top: 25px;
+}
+
+.chart-details {
+    border-left: 1px solid rgba(0,0,0,.125);
+    margin-top: -15px;
+    margin-bottom: -15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .card {
+        margin-right: -15px;
+        margin-left: -12px;
+        border-width: 0 0 1px;
+        border-radius: 0;
+        text-align: center;
+        .card-text {
+            @include cardText(14px);
+            font-weight: 400;
+        }
+        .card-title {
+            @include cardTitle(22px);
+        }
+    }
+    .card:last-child{
+        border-bottom: 0;
+    }
+}
+
+
+
+@media only screen and (min-width: 600px)  {
+
+}
